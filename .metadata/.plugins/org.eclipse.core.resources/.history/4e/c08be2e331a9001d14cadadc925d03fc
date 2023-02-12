@@ -1,0 +1,87 @@
+package main;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JPanel;
+
+public class GamePanel extends JPanel implements Runnable{
+	
+	// Screen Setting
+	final int originalTitleSize = 16; //16*16title
+	final int scale = 3;
+	
+	final int titleSize = originalTitleSize * scale; //48*48
+	final int maxScreenCol = 16; //<- ->
+	final int maxScreenRow = 12; // /|\
+	final int screenWidth = titleSize * maxScreenCol; //768 pix
+	final int screenHeight = titleSize * maxScreenRow; //576 pix
+	
+	KeyHandler keyH = new KeyHandler();
+	Thread gameThread;
+	
+	//set player's default postion
+	int playerX = 100;
+	int playerY = 100;
+	int playerSpeed = 4;
+	
+	public GamePanel() {
+		
+		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
+		this.setBackground(Color.black);
+		this.setDoubleBuffered(true);
+		this.addKeyListener(keyH);
+		this.setFocusable(true);
+	}
+
+	public void startGameThread() {
+		
+		gameThread = new Thread(this);
+		gameThread.start();
+	}
+	
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		while(gameThread != null) {
+			
+			long currentTime = System.nanoTime();
+			long currentTime2 = System.currentTimeMillis();
+			
+			//System.out.println("The game loop is running");
+			//1 Update information such as charater poisiton
+			update();
+			//2 draw the screen with the update information
+			repaint();
+		}
+	}
+	
+	public void update() {
+		if(keyH.upPressed == true) {
+			playerY -= playerSpeed;
+		}
+		else if(keyH.downPressed == true) {
+			playerX += playerSpeed;
+		}
+		else if(keyH.leftPressed == true) {
+			playerX -= playerSpeed;
+		}
+		else if(keyH.rightPressed == true) {
+			playerX += playerSpeed;
+		}
+	}
+	public void  paintComponent(Graphics g) {
+		
+		super.paintComponent(g);
+		
+		Graphics2D g2 = (Graphics2D)g;
+		
+		g2.setColor(Color.white);
+		
+		g2.fillRect(playerX, playerY, titleSize, titleSize);
+		
+		g2.dispose();
+	}
+}
