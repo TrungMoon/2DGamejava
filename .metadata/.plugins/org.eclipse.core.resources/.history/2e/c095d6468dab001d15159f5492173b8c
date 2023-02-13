@@ -1,0 +1,26 @@
+package tile;
+
+import main.GamePanel;
+
+public class TileManager {
+
+	GamePanel gp;
+	Tile[] tile;
+	
+	public TileManager(GamePanel gp) {
+		
+		this.gp = gp;
+		tile = new Tile[10];
+		
+		getTileImage();
+	}
+	
+	public void getTileImage() {
+		
+		try {
+			
+		}catch (IOException e) {
+			// TODO: handle exception
+		}
+	}
+}

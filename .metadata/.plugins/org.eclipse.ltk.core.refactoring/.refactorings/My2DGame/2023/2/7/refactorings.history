@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;My2DGame/res/maps/map01.txt.txt&apos; to &apos;map01.txt&apos;" description="Rename resource &apos;map01.txt.txt&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/maps/map01.txt.txt" name="map01.txt" stamp="1676287911402" updateReferences="true"/>
+</session>
