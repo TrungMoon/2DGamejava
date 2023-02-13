@@ -1,2 +1,2 @@
 # 2DGamejava
-<img src="Image1/part1.png">
+<img src="Image1/part2.png">
