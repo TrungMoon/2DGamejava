@@ -1,0 +1,9 @@
+package object;
+
+import java.awt.image.BufferedImage;
+
+public class Superobject {
+
+	public BufferedImage image;
+	public String name;
+}

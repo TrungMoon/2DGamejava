@@ -1,0 +1,8 @@
+package main;
+
+import javax.sound.sampled.Clip;
+
+public class Sound {
+
+	Clip clip;
+}

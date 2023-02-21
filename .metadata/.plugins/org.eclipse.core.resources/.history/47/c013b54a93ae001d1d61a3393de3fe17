@@ -1,0 +1,6 @@
+package main;
+
+public class Sound {
+
+	Clip clip;
+}
